@@ -6,7 +6,7 @@ import { Observable, of } from 'rxjs';
 import { Olympic } from 'src/app/core/models/Olympic';
 import { OlympicService } from 'src/app/core/services/olympic.service';
 
-export const CHART_TYPE:ChartType = 'pie';
+export const CHART_TYPE:ChartType = 'doughnut';
 
 @Component({
   selector: 'app-home',
@@ -21,18 +21,14 @@ export class HomeComponent implements OnInit {
   private _medalsPerCountry: number[] = [];
   public pieChartType: ChartType = CHART_TYPE;
   public pieChartPlugins = [ DatalabelsPlugin ];
-  public pieChartData: ChartData<ChartType, number[], string | string[]> = {
-    labels: this._countries,
-    datasets: [ {
-      data: this._medalsPerCountry
-    } ]
-  };
+  public pieChartData: ChartData<ChartType, number[], string | string[]> | undefined = undefined;
   public pieChartOptions: ChartConfiguration['options'] = {
     responsive: true,
+    aspectRatio: 2,
     plugins: {
       legend: {
         display: true,
-        position: 'top',
+        position: 'left',
       },
       datalabels: {
         formatter: (value, ctx) => {
@@ -62,6 +58,12 @@ export class HomeComponent implements OnInit {
         });
         this._medalsPerCountry.push(medalsCount);
       });
+      this.pieChartData = {
+        labels: this._countries,
+        datasets: [ {
+          data: this._medalsPerCountry
+        } ]
+      }
       this.dataLoaded = true;
     });
   }
