@@ -3,7 +3,10 @@ import { ChartConfiguration, ChartData, ChartType } from 'chart.js';
 import DatalabelsPlugin from 'chartjs-plugin-datalabels';
 import { BaseChartDirective } from 'ng2-charts';
 import { Observable, of } from 'rxjs';
+import { Olympic } from 'src/app/core/models/Olympic';
 import { OlympicService } from 'src/app/core/services/olympic.service';
+
+export const CHART_TYPE:ChartType = 'pie';
 
 @Component({
   selector: 'app-home',
@@ -14,12 +17,14 @@ export class HomeComponent implements OnInit {
 
   @ViewChild(BaseChartDirective) chart: BaseChartDirective | undefined;
 
-  public pieChartType: ChartType = 'pie';
+  private _countries:string[] = [];
+  private _medalsPerCountry: number[] = [];
+  public pieChartType: ChartType = CHART_TYPE;
   public pieChartPlugins = [ DatalabelsPlugin ];
-  public pieChartData: ChartData<'pie', number[], string | string[]> = {
-    labels: [ [ 'Download', 'Sales' ], [ 'In', 'Store', 'Sales' ], 'Mail Sales' ],
+  public pieChartData: ChartData<ChartType, number[], string | string[]> = {
+    labels: this._countries,
     datasets: [ {
-      data: [ 300, 500, 100 ]
+      data: this._medalsPerCountry
     } ]
   };
   public pieChartOptions: ChartConfiguration['options'] = {
@@ -39,11 +44,25 @@ export class HomeComponent implements OnInit {
     }
   };
 
-  public olympics$: Observable<any> = of(null);
+  public olympics$: Observable<Olympic[]> = of([]);
+  public olympics: Olympic[] = [];
+  public dataLoaded:boolean = false;
 
   constructor(private olympicService: OlympicService) {}
 
   ngOnInit(): void {
     this.olympics$ = this.olympicService.getOlympics();
+    this.olympics$.subscribe((data)=> {
+      this.olympics = data;
+      this.olympics.forEach((olympic)=> { 
+        this._countries.push(olympic.country);
+        let medalsCount:number = 0;
+        olympic.participations.forEach((participation) => {
+          medalsCount += participation.medalsCount;
+        });
+        this._medalsPerCountry.push(medalsCount);
+      });
+      this.dataLoaded = true;
+    });
   }
 }
