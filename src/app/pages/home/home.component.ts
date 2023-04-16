@@ -1,10 +1,11 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { ChartConfiguration, ChartData, ChartType, Chart } from 'chart.js';
+import { ChartConfiguration, ChartData } from 'chart.js';
 import DatalabelsPlugin from 'chartjs-plugin-datalabels';
 import { BaseChartDirective } from 'ng2-charts';
 import { Observable, of } from 'rxjs';
 import { Olympic } from 'src/app/core/models/Olympic';
 import { OlympicService } from 'src/app/core/services/olympic.service';
+import { wording } from 'src/app/utils/wording';
 
 @Component({
   selector: 'app-home',
@@ -15,14 +16,16 @@ export class HomeComponent implements OnInit {
 
   @ViewChild(BaseChartDirective) chart: BaseChartDirective | undefined;
 
-  private _countries:string[] = [];
+  public wording = wording;
+
+  public countries:string[] = [];
   private _medalsPerCountry: number[] = [];
   public chartType: ChartConfiguration<'doughnut'>['type'] = 'doughnut';
   public chartPlugins = [ DatalabelsPlugin ];
   public chartData: ChartData<'doughnut', number[], string | string[]> | undefined = undefined;
   public chartOptions: ChartConfiguration<'doughnut'>['options'] = {
     responsive: true,
-    aspectRatio: 2,
+    aspectRatio: 1,
     plugins: {
       legend: {
         display: false,
@@ -54,7 +57,7 @@ export class HomeComponent implements OnInit {
     this.olympics$.subscribe((data)=> {
       this.olympics = data;
       this.olympics.forEach((olympic)=> { 
-        this._countries.push(olympic.country);
+        this.countries.push(olympic.country);
         let medalsCount:number = 0;
         olympic.participations.forEach((participation) => {
           medalsCount += participation.medalsCount;
@@ -62,7 +65,7 @@ export class HomeComponent implements OnInit {
         this._medalsPerCountry.push(medalsCount);
       });
       this.chartData = {
-        labels: this._countries,
+        labels: this.countries,
         datasets: [ {
           data: this._medalsPerCountry,
           datalabels: {
@@ -70,7 +73,7 @@ export class HomeComponent implements OnInit {
               '#1B8A44',
               '#711313',
               '#A0811C',
-              '#756363',
+              '#1a0f0f',
               '#324F8C'
             ]
           },
@@ -78,14 +81,14 @@ export class HomeComponent implements OnInit {
             '#52D683',
             '#D66363',
             '#FAD45A',
-            '#CEC6C6',
+            '#463E3E',
             '#6E96EB'
           ],
           hoverBorderColor: [
             '#1B8A44',
             '#711313',
             '#A0811C',
-            '#756363',
+            '#1a0f0f',
             '#324F8C'
           ]
         } ],
