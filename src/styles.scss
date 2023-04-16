@@ -5,14 +5,14 @@
 }
 
 html {
- margin:0px;
- height:100%;
- width:100%;
- background:url('./assets/images/bryan-turner-mF9m6BRHCtg-unsplash.jpg') no-repeat center center fixed; 
- -webkit-background-size:cover;
- -o-background-size:cover;
- -moz-background-size:cover;
- background-size:cover;
+    margin:0px;
+    height:100%;
+    width:100%;
+    background:url('./assets/images/bryan-turner-mF9m6BRHCtg-unsplash.jpg') no-repeat center center fixed; 
+    -webkit-background-size:cover;
+    -o-background-size:cover;
+    -moz-background-size:cover;
+    background-size:cover;
 }
 
 body { 
@@ -20,5 +20,5 @@ body {
     height: 100%;
     width: 100%;
     font-family: Roboto, "Helvetica Neue", sans-serif; 
-    background-color: rgba($color: #ffffff, $alpha: 0.4);
+    background-color: rgba($color: #ffffff, $alpha: 0.7);
 }
