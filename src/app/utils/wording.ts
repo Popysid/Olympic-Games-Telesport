@@ -6,15 +6,28 @@ export const wording = {
             description: "Télésport Web Application that displays data about the last Olympic Games.",
             olympicsCount: "Number of Olympics",
             countriesCount: "Number of Countries",
-            noDataLoaded: "No data available."
+            noDataLoaded: "No data available.",
         },
         details: {
-            subtitle: "Details per country",
-            notFound: (label:string, element:any) => `${label}: ${element} not found.`
+            notFound: (label:string, element:any) => `Country with ${label}: ${element} not found.`,
+            entriesCount: "Number of Entries",
+            totalMedalsCount: "Total Number of Medals",
+            totalAthletesCount: "Total Number of Athletes",
+            medalsPerParticipation: "Medals per Participation",
+            medals: " Medals",
+
         },
         notFound: {
-            subtitle: "404: Page not found"
+            warning: "404: Page not found.",
+            back: "Go Back",
         }
+    },
+    header: {
 
+    },
+    footer: {
+        copyright: "© Copyright",
+        credits: "Credits",
+        author: "Author",
     }
 }

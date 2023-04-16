@@ -16,12 +16,19 @@
     img {
         width: 200px;
         height: auto;
+        border-radius: 1em;
         cursor: pointer;
+        &:hover {
+            background-color: crimson;
+        }
     }
 }
 
 .title {
     text-align: center;
+    font-size: 20px;
+    font-weight: bold;
+    color: crimson;
 }
 
 .nav {

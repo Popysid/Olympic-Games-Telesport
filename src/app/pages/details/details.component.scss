@@ -1,7 +1,4 @@
-.page-container {
-    position: relative;
-    z-index: 2;
-}
+@import url('../../../styles-common.scss');
 
 .absolute-flex-center {
     width: 100%;
@@ -38,6 +35,28 @@
     font-weight: bold;
 }
 
-.mat-icon {
-    vertical-align: middle;
-} 
+.line-chart-container {
+    margin: 1em auto;
+    width: fit-content;
+    height: fit-content;
+    padding: 1em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba($color: #fff, $alpha: 0.8);
+    border-radius: 2em;
+}
+
+.line-chart {
+    h2 {
+        width: calc(100% - 4em);
+        padding: 0.5em 2em;
+        background-color: #5c659f;
+        border: 1px solid white;
+        border-radius: 1em;
+        color: white;
+        font-size: 18px;
+        font-weight: bold;
+        text-align: center;
+    }
+}
