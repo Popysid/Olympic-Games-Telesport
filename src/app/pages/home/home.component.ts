@@ -19,7 +19,7 @@ export class HomeComponent implements OnInit {
   @ViewChild(BaseChartDirective) chart: BaseChartDirective | undefined;
 
   public wording = wording;
-  public participations: number = 0;
+  public participations:number = 0;
   public countries:string[] = [];
   private _medalsPerCountry: number[] = [];
   public chartType: ChartConfiguration<'doughnut'>['type'] = 'doughnut';
@@ -79,6 +79,9 @@ export class HomeComponent implements OnInit {
         } ],
       }
       this.participations = this.olympics[0]?.participations.length;
+      if (isNaN(this.participations)) {
+        this.participations = 0;
+      }
       this.dataLoaded = true;
     });
   }

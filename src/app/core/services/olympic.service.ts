@@ -20,7 +20,6 @@ export class OlympicService {
       tap((value) => this.olympics$.next(value)),
       catchError((error, caught) => {
         this._errors.push(error.errorMessage);
-        // can be useful to end loading state and let the user know something went wrong
         this.olympics$.next([]);
         return caught;
       })
