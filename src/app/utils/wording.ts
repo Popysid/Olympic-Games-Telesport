@@ -3,7 +3,8 @@ export const wording = {
     page: {
         home: {
             subtitle: "Medals per Country",
-            description: "Télésport Web Application that displays data about the last Olympic Games.",
+            descriptionStart: "Télésport Web Application",
+            descriptionEnd: "about last Olympic Games",
             olympicsCount: "Number of Olympics",
             countriesCount: "Number of Countries",
             noDataLoaded: "No data available.",

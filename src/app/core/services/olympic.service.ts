@@ -32,7 +32,7 @@ export class OlympicService {
   }
 
   getAsyncOlympics() {
-    return this.olympics$.asObservable().pipe(delay(3000));
+    return this.olympics$.asObservable().pipe(delay(2000));
   }
 
   getOlympicById(lookupId:number):Observable<Olympic> {
