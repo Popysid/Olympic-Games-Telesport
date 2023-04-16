@@ -1,17 +1,17 @@
 <div class="page-container">
     <div class="statistics">
         <div class="statistics-content">
-            {{wording.page.home.olympicsCount}}: <span class="statistics-span">{{olympics?.length}}</span>
+            {{wording.page.home.olympicsCount}}: <span class="statistics-span">{{olympics.length}}</span>
         </div>
         <div class="statistics-title">
             {{wording.page.home.subtitle}}
         </div>
         <div class="statistics-content">
-            {{wording.page.home.countriesCount}}: <span class="statistics-span">{{countries?.length}}</span>
+            {{wording.page.home.countriesCount}}: <span class="statistics-span">{{countries.length}}</span>
         </div>
     </div>
     <div *ngIf="dataLoaded">
-        <div *ngIf="olympics?.length != 0" class="chart-container">
+        <div *ngIf="olympics.length != 0" class="chart-container">
             <canvas baseChart class="chart"
                 [data]="chartData"
                 [type]="chartType"
@@ -22,13 +22,13 @@
                 <div class="central-logo"></div>
             </div>
         </div>
-        <div *ngIf="olympics?.length == 0">
-            <p class="dialog-warning">{{wording.page.home.noDataLoaded}}</p>
+        <div *ngIf="olympics.length == 0">
+            <p class="dialog-warning"><mat-icon>warning</mat-icon> {{wording.page.home.noDataLoaded}}</p>
         </div>
     </div>
     <div *ngIf="!dataLoaded" class="chart-container">
         <div class="absolute-flex-center">
-            <mat-spinner></mat-spinner>
+            <mat-spinner [diameter]="200"></mat-spinner>
         </div>
     </div>
 </div>
