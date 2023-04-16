@@ -1,0 +1,11 @@
+<div class="page-container">
+    <div *ngIf="dataLoaded">
+        <h1>{{country}}</h1>
+        <ul class="error" *ngIf="errors.length != 0 && !country">
+            <li  class="error-message" *ngFor="let errorMessage of errors"><mat-icon>error</mat-icon> {{errorMessage}}</li>
+        </ul>
+    </div>
+    <div class="absolute-flex-center" *ngIf="!dataLoaded">
+        <mat-spinner [diameter]="200"></mat-spinner>
+    </div>
+</div>

@@ -9,7 +9,8 @@ export const wording = {
             noDataLoaded: "No data available."
         },
         details: {
-            subtitle: "Details per country"
+            subtitle: "Details per country",
+            notFound: (label:string, element:any) => `${label}: ${element} not found.`
         },
         notFound: {
             subtitle: "404: Page not found"
