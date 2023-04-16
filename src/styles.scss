@@ -4,8 +4,7 @@
     margin: 0;
 }
 
-html
-{
+html {
  margin:0px;
  height:100%;
  width:100%;
@@ -16,4 +15,10 @@ html
  background-size:cover;
 }
 
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+body { 
+    margin: 0; 
+    height: 100%;
+    width: 100%;
+    font-family: Roboto, "Helvetica Neue", sans-serif; 
+    background-color: rgba($color: #ffffff, $alpha: 0.4);
+}
