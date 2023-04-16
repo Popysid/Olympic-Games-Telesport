@@ -1,6 +1,5 @@
 .center {
-  width: 100vw;
-  height: 100vh;
+  padding-top: 10em;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -15,7 +14,7 @@
 }
 
 .rounded {
-  width: 27%;
+  width: 480px;
   height: fit-content;
   margin: 0;
   display: flex;
