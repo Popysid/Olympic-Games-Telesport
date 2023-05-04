@@ -46,7 +46,6 @@ export class HomeComponent implements OnInit, OnDestroy {
         usePointStyle: true,
         callbacks: {
           label: (context) => {
-            console.log(context);
             let label = wording.page.details.medals + ": " + context.formattedValue;
             return label;
           },
