@@ -47,11 +47,38 @@
     }
 }
 
+.middle-header-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 .title {
     text-align: center;
-    font-size: 20px;
+    font-size: 26px;
     font-weight: bold;
     color: crimson;
+}
+
+.small-rings {
+    img {
+        width: 80px;
+        height: auto;
+    }
+}
+
+.medium-rings {
+    img {
+        width: 100px;
+        height: auto;
+    }
+}
+
+.large-rings {
+    img {
+        width: 110px;
+        height: auto;
+    }
 }
 
 .description {

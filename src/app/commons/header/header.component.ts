@@ -21,6 +21,8 @@ export class HeaderComponent implements OnInit, OnDestroy {
   public screen!:Screen;
   public alt:string = "Logo Télésport";
   public logoPath!:string;
+  public ringsSrc:string = "../../../assets/images/olympic-rings.png";
+  public ringsAlt: string = "Olympic Rings";
   
   constructor(private _responsive: ResponsiveService) {}
 
@@ -50,10 +52,14 @@ export class HeaderComponent implements OnInit, OnDestroy {
   }
 
   get header() {
-    return {'header': true,'small': this.screen.isSmall, 'medium': this.screen.isMedium, 'large': this.screen.isLarge}
+    return { 'header': true,'small': this.screen.isSmall, 'medium': this.screen.isMedium, 'large': this.screen.isLarge}
   }
 
   get logo() {
-    return {'logo': true, 'small-logo': this.screen?.isSmall, 'full-logo': this.screen?.isMedium || this.screen?.isLarge }
+    return { 'logo': true, 'small-logo': this.screen?.isSmall, 'full-logo': this.screen?.isMedium || this.screen?.isLarge }
+  }
+
+  get rings() {
+    return { 'small-rings': this.screen?.isSmall, 'medium-rings': this.screen?.isMedium, 'large-rings': this.screen?.isLarge }
   }
 }
