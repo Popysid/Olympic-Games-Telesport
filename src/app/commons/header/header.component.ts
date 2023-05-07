@@ -55,6 +55,10 @@ export class HeaderComponent implements OnInit, OnDestroy {
     return { 'header': true,'small': this.screen.isSmall, 'medium': this.screen.isMedium, 'large': this.screen.isLarge}
   }
 
+  get rainbow() {
+    return { 'rainbow': true, 'small-rainbow': this.screen?.isSmall, 'medium-and-large-rainbow': !this.screen?.isSmall }
+  }
+
   get logo() {
     return { 'logo': true, 'small-logo': this.screen?.isSmall, 'full-logo': this.screen?.isMedium || this.screen?.isLarge }
   }
